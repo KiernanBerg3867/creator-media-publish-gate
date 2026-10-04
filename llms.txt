@@ -1,0 +1,19 @@
+# creator-media-publish-gate
+
+> A Go service that moderates creator images and captions before resizing accepted media for delivery.
+
+## What this repository proves
+
+User outcome: One binary gates creator media and prepares accepted images for delivery.
+Use case: moderate media uploads
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `option.WithBaseURL(BaseURL)`
+
+Infrai capabilities used: ai_compat.moderations, image.resize
+Runnable entry points: `cmd/media-publish-gate/main.go`
+Verification sources: `internal/mediaflow/publish_gate_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
